@@ -207,7 +207,6 @@ class PlayState extends MusicBeatState
     public var camHUDShaders:Array<ShaderEffect> = [];
     public var camOtherShaders:Array<ShaderEffect> = [];
 
-
 	//Gameplay settings
 	public var healthGain:Float = 1;
 	public var healthLoss:Float = 1;
@@ -1617,10 +1616,16 @@ class PlayState extends MusicBeatState
 			for (script in luaArray)
 			{
 				if(script.scriptName == luaFile) return;
-}
-
-    public function addShaderToCamera(cam:String,effect:ShaderEffect)//STOLE FROM ANDROMEDA
-	 
+			}
+			luaArray.push(new FunkinLua(luaFile));
+		}
+		#end
+	}
+	
+	public function addShaderToCamera(cam:String,effect:ShaderEffect){//STOLE FROM ANDROMEDA
+	  
+	  
+	  
 		switch(cam.toLowerCase()) {
 			case 'camhud' | 'hud':
 					camHUDShaders.push(effect);
@@ -1715,12 +1720,6 @@ class PlayState extends MusicBeatState
 		
 	  
   }
-
-			}
-			luaArray.push(new FunkinLua(luaFile));
-		}
-		#end
-	}
 	
 	public function addShaderToCamera(cam:String,effect:Dynamic){//STOLE FROM ANDROMEDA	// actually i got it from old psych engine
 	  
@@ -3630,10 +3629,10 @@ class PlayState extends MusicBeatState
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);
 		
-	    for (i in shaderUpdates){
-			     i(elapsed);
-		    }
-
+		for (i in shaderUpdates){
+			i(elapsed);
+		}
+		
 		for (shader in animatedShaders)
 			{
 				shader.update(elapsed);
