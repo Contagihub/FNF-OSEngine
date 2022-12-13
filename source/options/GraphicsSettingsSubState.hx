@@ -45,7 +45,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 		
         var option:Option = new Option('Shaders', //shaders
-	        'ativa ou desativa shaders.\isso pode causar lags.', //Description
+	        'ativa ou desativa shaders.isso pode causar lags.', //Description
 	        'shaders', //Save data variable name
 	        'bool', //Variable type
 	       false); //Default value
