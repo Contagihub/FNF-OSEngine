@@ -1617,8 +1617,7 @@ class PlayState extends MusicBeatState
 			for (script in luaArray)
 			{
 				if(script.scriptName == luaFile) return;
-				public function addShaderToCamera(cam:String,effect:ShaderEffect){//STOLE FROM ANDROMEDA
-	  
+				public function addShaderToCamera(cam:String,effect:ShaderEffect){//STOLE FROM ANDROMEDA}
 	  
 	  
 		switch(cam.toLowerCase()) {
