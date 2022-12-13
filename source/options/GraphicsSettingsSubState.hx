@@ -52,6 +52,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.showBoyfriend = true;
 		option.onChange = onChangeAntiAliasing; //Changing onChange is only needed if you want to make a special interaction after it changes the value
 		addOption(option);
+		
+        var option:Option = new Option('Shaders', //Name
+	        'ativa ou desativa os shaders.', //Description
+	        'shaders', //Save data variable name
+	        'bool', //Variable type
+	       false); //Default value
+        addOption(option); 
 
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		var option:Option = new Option('Framerate',
@@ -62,8 +69,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		option.minValue = 60;
-		option.maxValue = 360;
-		option.changeValue = 5;
+		option.maxValue = 240;
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;
 		#end
